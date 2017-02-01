@@ -1,0 +1,13 @@
+version: 0.0
+os: windows
+files:
+  - source: tsconfig.json
+    destination: /home/ts.js
+  - source: app
+    destination: /home/Jetty/demo-base/webapps/ROOT/myApp
+hooks:
+  BeforeInstall:
+    - location: /home/Jetty/stop.bat
+  AfterInstall:
+    - location: /home/Jetty/run.bat
+      timeout: 180
