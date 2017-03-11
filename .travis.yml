@@ -8,5 +8,19 @@ before_script:
  - typings install
  - tsc
 
+deploy:
+  - provider: s3
+    access_key_id: AKIAJGFL3PJGLJCCTNWQ
+    secret_access_key: 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 
+    bucket: acmedata.dplusv4.updates
+    local_dir: /
+  - provider: codedeploy
+    access_key_id: AKIAJGFL3PJGLJCCTNWQ
+    secret_access_key: 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
+    bucket: acmedata.dplusv4.updates
+    key: latestUpdate
+    application: MyTestApp
+    deployment_group: MyTestDeploymentGroup
+
 script: npm run tsc
 
