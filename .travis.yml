@@ -9,3 +9,4 @@ before_script:
  - tsc
 
 script: npm run tsc
+
