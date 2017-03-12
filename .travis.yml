@@ -12,12 +12,12 @@ deploy:
   - provider: s3
     access_key_id: 
     secret_access_key:  
-    bucket: acmedata.dplusv4.updates
+    bucket: 
     local_dir: /
   - provider: codedeploy
     access_key_id: 
     secret_access_key: 
-    bucket: acmedata.dplusv4.updates
+    bucket: 
     key: latestUpdate
     application: MyTestApp
     deployment_group: MyTestDeploymentGroup
