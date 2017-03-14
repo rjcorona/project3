@@ -1,26 +1,14 @@
 sudo: required
 language: node_js
 node_js:
-  - '4.2'
+- '4.2'
 before_script:
- - npm install
- - npm i -g typescript typings
- - typings install
- - tsc
-
-deploy:
-  - provider: s3
-    access_key_id: 
-    secret_access_key:  
-    bucket: 
-    local_dir: /
-  - provider: codedeploy
-    access_key_id: 
-    secret_access_key: 
-    bucket: 
-    key: latestUpdate
-    application: MyTestApp
-    deployment_group: MyTestDeploymentGroup
+- npm install
+- npm i -g typescript typings
+- typings install
+- tsc
 
 script: npm run tsc
-
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv sfssffsf dpl_cd_upload/sfssffsf
