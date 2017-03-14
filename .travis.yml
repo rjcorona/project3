@@ -9,6 +9,3 @@ before_script:
 - tsc
 
 script: npm run tsc
-before_deploy:
-- mkdir -p dpl_cd_upload
-- mv sfssffsf dpl_cd_upload/sfssffsf
