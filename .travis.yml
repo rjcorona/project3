@@ -17,11 +17,11 @@ deploy:
   skip_cleanup: true
   on: &2
     repo: rjcorona/project3
-  bucket: acmedata.dqplusv4.updates
+  bucket: dqplusv4updates
 - provider: codedeploy
   access_key_id: AKIAJKHIVCEHIPHSJZDQ
   secret_access_key: *1
-  bucket: acmedata.dqplusv4.updates
+  bucket: dqplusv4updates
   key: latest.zip
   bundle_type: zip
   application: MyTestApp
