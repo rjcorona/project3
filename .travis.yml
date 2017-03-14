@@ -7,5 +7,26 @@ before_script:
 - npm i -g typescript typings
 - typings install
 - tsc
-
 script: npm run tsc
+deploy:
+- provider: s3
+  access_key_id: AKIAJKHIVCEHIPHSJZDQ
+  secret_access_key: &1
+    secure: UU16vwGKGi8pSyuCvljwiRDLXGvNwZxnnlIQb7BV3R4o3pwn8PDiROh/RgIwUWpBkzDGeK0yk1o++klFIHEt5YWCqjdgkTtjGcsgyjO2B4zNI6thl7nrLoYq/iVgKgmIUCrXDtJRB3lb+QgPtzm37x4GoB3D2eaKINfwLfZSlvKhwNCqpZBfsOsv04IQGHBcTQ0qHS6G0tN5tmv9THMCkQEekooVMANUl1B5s9fB3R8L4CJRdyCSw7fjoE8Cd836LUHJB1djCeSz8ycoPXAwJVFjJYx0AgYEryEHAUAgbbSbPvasvwRSFlQY7EbRVyRYVmvAjGzMYNVm1UhTmVE4m3TJx7iEYNdHjIn+N5Zv6y25Chxkh15y2V/Sl/GQDZEC8y1A2Rl7ppc+EeMq8TB1PajiwtGcXV1U4y2hoYnGMoBH0L7xPhsMpwgsqnyXblxIE3s0ZdyPBWG9FKX0wzmDyAlTnLxJqmqOOc/7hzWuWzmHFSd5Pa8KUPCX7VYZuIdh+eHWGqhVu5QG9gaKkH+3/SfuZ3V5x3kWkZMGCwE0XhM+6sjrHxLovA5NibYEPYE9eVds3BYzsNuQrSfuDsM8tNIdOc7NzL0wmeHqc7KLgB+sqJeYiwtQaSgBeuaM+lakATWT5QOb4FNxxvI+Fp6mw9Iu/gUDxD1PrIKFpGIZ8hk=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on: &2
+    repo: rjcorona/project3
+  bucket: acmedata.dqplusv4.updates
+- provider: codedeploy
+  access_key_id: AKIAJKHIVCEHIPHSJZDQ
+  secret_access_key: *1
+  bucket: acmedata.dqplusv4.updates
+  key: lastupdate
+  bundle_type: zip
+  application: MyTestApp
+  deployment_group: MyTestDeploymentGroup
+  on: *2
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv lastupdate dpl_cd_upload/lastupdate
