@@ -23,7 +23,7 @@ deploy:
   secret_access_key: *1
   bucket: acmedata.dqplusv4.updates
   key: latest.zip
-  bundle_type:zip
+  bundle_type: zip
   application: MyTestApp
   deployment_group: MyTestDeploymentGroup
   on: *2
