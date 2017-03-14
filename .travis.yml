@@ -22,9 +22,12 @@ deploy:
   access_key_id: AKIAJKHIVCEHIPHSJZDQ
   secret_access_key: *1
   bucket: acmedata.dqplusv4.updates
-  key: lastupdate
+  key: latest.zip
+  bundle_type:zip
   application: MyTestApp
   deployment_group: MyTestDeploymentGroup
   on: *2
 before_deploy:
-  - mkdir -p dpl_cd_upload
+  -mkdir -p dpl_cd_upload
+  -zip -r latest * -x 'node_module'
+  -mv latest.zip dpl_cd_upload/latest.zip
