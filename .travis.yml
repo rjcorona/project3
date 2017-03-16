@@ -26,6 +26,7 @@ deploy:
   bundle_type: zip
   application: MyTestApp
   deployment_group: MyTestDeploymentGroup
+  region: us-west-1a
   on: *2
 before_deploy:
  - mkdir -p dpl_cd_upload
