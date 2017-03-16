@@ -32,6 +32,6 @@ before_deploy:
  - zip -r latest * -x 'node_modules/*'
  - mv latest.zip dpl_cd_upload/latest.zip
  
- 
+
 
  
