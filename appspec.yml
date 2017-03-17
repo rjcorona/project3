@@ -5,3 +5,6 @@ files:
     destination: /home/ts.js
   - source: app
     destination: /home/Jetty/demo-base/webapps/ROOT/myApp
+hooks:
+  BeforeInstall:
+    - location: /home/Jetty
