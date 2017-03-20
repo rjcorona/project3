@@ -2,9 +2,9 @@ version: 0.0
 os: windows
 files:
   - source: /tsconfig.json
-    destination: /home/ts.js
-  - source: app
-    destination: /home/Jetty/demo-base/webapps/ROOT/myApp
+    destination: /home
+  - source: /demo-webapp-root
+    destination: /home/Jetty/demo-base/webapps/ROOT
 hooks:
   BeforeInstall:
     - location: /scripts/stop-server.bat
