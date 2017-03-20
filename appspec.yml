@@ -7,4 +7,6 @@ files:
     destination: /home/Jetty/demo-base/webapps/ROOT/myApp
 hooks:
   BeforeInstall:
-    - location: c:\home\Jetty\stop.bat
+    - location: /scripts/stop-server.bat
+  AfterInstall:
+    - location: /scripts/start-server.bat
