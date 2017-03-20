@@ -7,7 +7,7 @@ files:
     destination: /home/Jetty/demo-base/webapps/ROOT
 hooks:
   BeforeInstall:
-    - location: /scripts/stop-server.bat
+    - location: /scripts/before-deploy.bat
   AfterInstall:
-    - location: /scripts/start-server.bat
+    - location: /scripts/after-deploy.bat
     
