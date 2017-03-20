@@ -10,3 +10,4 @@ hooks:
     - location: /scripts/stop-server.bat
   AfterInstall:
     - location: /scripts/start-server.bat
+    
